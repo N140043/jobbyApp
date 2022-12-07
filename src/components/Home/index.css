@@ -8,7 +8,7 @@
     background-image: url('https://assets.ccbp.in/frontend/react-js/home-lg-bg.png');
   }
 }
-.main-container {
+.main-container-home {
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
@@ -16,7 +16,7 @@
   padding: 10px 20px;
 }
 @media (min-width: 767px) {
-  .main-container {
+  .main-container-home {
     width: 50%;
   }
 }
@@ -40,4 +40,5 @@
   padding: 10px 20px;
   border: none;
   border-radius: 6px;
+  text-decoration: none;
 }

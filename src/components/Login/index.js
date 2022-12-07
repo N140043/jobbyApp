@@ -2,6 +2,7 @@ import './index.css'
 
 import Cookies from 'js-cookie'
 import {Component} from 'react'
+import {Redirect} from 'react-router-dom'
 
 class Login extends Component {
   state = {
@@ -56,6 +57,10 @@ class Login extends Component {
   render() {
     const {username, password, errormsg, loginSuccess} = this.state
     // console.log(username, password)
+    const Token = Cookies.get('jwt_token')
+    if (Token !== undefined) {
+      return <Redirect to="/" />
+    }
     return (
       <div className="login-bg">
         <form className="form-container" onSubmit={this.submitForm}>
@@ -67,11 +72,11 @@ class Login extends Component {
             />
           </div>
           <div className="input-container">
-            <label htmlFor="username" className="username-label">
+            <label htmlFor="user-name" className="username-label">
               USERNAME
             </label>
             <input
-              id="username"
+              id="user-name"
               type="text"
               className="user-name"
               placeholder="Username"
