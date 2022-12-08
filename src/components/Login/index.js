@@ -43,13 +43,13 @@ class Login extends Component {
     const response = await fetch(apiUrl, option)
 
     const data = await response.json()
-    console.log(data)
+    // console.log(data)
     if (response.ok) {
       const jwtToken = data.jwt_token
       //   console.log(jwtToken)
       this.onSuccessLogin(jwtToken)
     } else {
-      console.log(data.error_msg)
+      //   console.log(data.error_msg)
       this.onFailure(data.error_msg)
     }
   }

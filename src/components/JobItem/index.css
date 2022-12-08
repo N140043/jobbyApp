@@ -1,0 +1,80 @@
+.job-item-container {
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px 0px #7e858e;
+  background-color: #272727;
+}
+.company-details-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.company-logo {
+  height: 50px;
+}
+@media (min-width: 767px) {
+  .company-logo {
+    height: 60px;
+  }
+}
+.company-name-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-left: 20px;
+  padding: 0px;
+}
+.company-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0px;
+}
+.company-rating {
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.star-icon {
+  color: #fbbf24;
+  margin-right: 10px;
+}
+.company-location {
+  font-size: 12px;
+  font-weight: 400;
+  color: #fff;
+  margin-right: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.location-icon {
+  color: #fff;
+  margin-right: 7px;
+}
+.location-container {
+  border-bottom: 2px solid #475569;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.location-job-type {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+.description-heading {
+  font-size: 18px;
+  font-weight: 500;
+  color: #f1f5f9;
+}
+.description {
+  font-size: 14px;
+  line-height: 1.6;
+  font-weight: 400;
+  color: #f1f5f9;
+}
