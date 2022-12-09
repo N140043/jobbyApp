@@ -61,6 +61,7 @@ class Jobs extends Component {
     jobs: [],
     salary: '',
     employType: [],
+    search: '',
   }
 
   componentDidMount() {
@@ -70,10 +71,11 @@ class Jobs extends Component {
 
   getJobsAvailable = async () => {
     this.setState({jobsApiStatus: status.inProcess})
-    const {salary, employType} = this.state
+    const {salary, employType, search} = this.state
+    // console.log(search)
     const employTypes = employType.join(',')
     const token = Cookies.get('jwt_token')
-    const url = `https://apis.ccbp.in/jobs?employment_type=${employTypes}&minimum_package=${salary}`
+    const url = `https://apis.ccbp.in/jobs?employment_type=${employTypes}&minimum_package=${salary}&search=${search}`
     const options = {
       method: 'GET',
       headers: {
@@ -121,13 +123,32 @@ class Jobs extends Component {
     // console.log(data)
     if (response.ok) {
       this.setState({profile: profileDetails, profileApiStatus: status.success})
+    } else {
+      this.setState({jobsApiStatus: status.failure})
     }
+  }
+
+  enterSearch = event => {
+    this.setState({search: event.target.value})
+  }
+
+  updateResultOnSearch = () => {
+    this.getJobsAvailable()
   }
 
   searchElement = () => (
     <div className="search-container">
-      <input type="search" placeholder="Search" className="search-input" />
-      <button type="button" className="search-btn">
+      <input
+        type="search"
+        placeholder="Search"
+        className="search-input"
+        onChange={this.enterSearch}
+      />
+      <button
+        type="button"
+        className="search-btn"
+        onClick={this.updateResultOnSearch}
+      >
         <BiSearch className="search-icon" />
       </button>
     </div>
@@ -152,6 +173,18 @@ class Jobs extends Component {
             <img src={profileImgUrl} alt="profile" className="profile-img" />
             <h1 className="profile-name">{name}</h1>
             <p className="profile-bio">{shortBio}</p>
+          </div>
+        )
+      case status.failure:
+        return (
+          <div className="profile-failure-container">
+            <button
+              type="button"
+              className="failure-retry-btn"
+              onClick={this.getProfileDetails}
+            >
+              Retry
+            </button>
           </div>
         )
       default:
@@ -222,6 +255,21 @@ class Jobs extends Component {
 
   jobsList = () => {
     const {jobs} = this.state
+    if (jobs.length === 0) {
+      return (
+        <div className="jobs-failure-container">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png"
+            alt="no jobs"
+            className="failure-icon"
+          />
+          <h1 className="failure-heading">No Jobs Found</h1>
+          <p className="failure-para">
+            We could not find any jobs. Try other filters.
+          </p>
+        </div>
+      )
+    }
     return (
       <ul className="jobs-list-container">
         {jobs.map(each => (
@@ -231,13 +279,34 @@ class Jobs extends Component {
     )
   }
 
+  jobsFailureView = () => (
+    <div className="jobs-failure-container">
+      <img
+        src="https://assets.ccbp.in/frontend/react-js/failure-img.png"
+        alt="failure view"
+        className="failure-icon"
+      />
+      <h1 className="failure-heading">Oops! Something Went Wrong</h1>
+      <p className="failure-para">
+        we cannot seem to find the page you are looking for.
+      </p>
+      <button
+        type="button"
+        className="failure-retry-btn"
+        onClick={this.getJobsAvailable}
+      >
+        Retry
+      </button>
+    </div>
+  )
+
   jobsListResult = () => {
     const {jobsApiStatus} = this.state
     switch (jobsApiStatus) {
       case status.inProcess:
         return this.loading()
       case status.failure:
-        return <p color="#fff">failure</p>
+        return this.jobsFailureView()
       case status.success:
         return this.jobsList()
       default:

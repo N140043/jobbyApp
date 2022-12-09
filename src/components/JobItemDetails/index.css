@@ -1,0 +1,125 @@
+.job-item-details-container-bg {
+  background-color: #000000;
+  min-height: 90vh;
+  padding: 10px 20px;
+  font-family: 'Roboto';
+}
+@media (min-width: 767px) {
+  .job-item-details-container-bg {
+    padding: 30px 50px;
+  }
+}
+.job-item-details-container {
+  background-color: #272727;
+  padding: 20px;
+  border-radius: 10px;
+}
+.visit-heading {
+  color: #6366f1;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  text-decoration: none;
+}
+.visit {
+  margin-left: 5px;
+}
+.heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.skills-container {
+  list-style-type: none;
+  padding-left: 0px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.skills-outer-container {
+  margin-top: 30px;
+}
+.each-skill {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  width: 45%;
+  margin-right: 10px;
+  margin-bottom: 15px;
+}
+@media (min-width: 767px) {
+  .each-skill {
+    width: 30%;
+    margin-right: 20px;
+    margin-bottom: 35px;
+  }
+}
+.skill-icon {
+  width: 40px;
+  margin-right: 10px;
+}
+@media (min-width: 767px) {
+  .skill-icon {
+    width: 55px;
+    margin-right: 20px;
+  }
+}
+.skill-name {
+  font-size: 15px;
+  font-weight: 500;
+  color: #f8fafc;
+}
+.description-container-job-item {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  margin-top: 0px;
+  padding-top: 0px;
+}
+@media (min-width: 767px) {
+  .description-container-job-item {
+    flex-direction: row;
+  }
+}
+.life-image {
+  width: 100%;
+}
+@media (min-width: 767px) {
+  .life-image {
+    width: 40%;
+    margin-left: 10px;
+  }
+}
+.similar-heading {
+  font-size: 20px;
+  font-weight: 800;
+  color: #fff;
+  margin-top: 20px;
+}
+.similar-job-item {
+  background-color: #272727;
+  padding: 20px;
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 5px 0px #cbd5e1;
+}
+@media (min-width: 767px) {
+  .similar-job-item {
+    width: 300px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+  }
+}
+.similar-job-items-container {
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 0px;
+  list-style-type: none;
+}
