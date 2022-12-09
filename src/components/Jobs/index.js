@@ -148,6 +148,7 @@ class Jobs extends Component {
         type="button"
         className="search-btn"
         onClick={this.updateResultOnSearch}
+        testid="searchButton"
       >
         <BiSearch className="search-icon" />
       </button>
@@ -155,7 +156,7 @@ class Jobs extends Component {
   )
 
   loading = () => (
-    <div className="loader">
+    <div className="loader" testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )

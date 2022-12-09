@@ -84,7 +84,7 @@ class JobItemDetails extends Component {
   }
 
   loading = () => (
-    <div className="loader">
+    <div className="loader" testid="loader">
       <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
     </div>
   )
